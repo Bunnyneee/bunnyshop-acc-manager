@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản Lý Acc Bunny Shop</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="login-screen">
+    <h2>🔐 Đăng nhập</h2>
+    <input type="password" id="password" placeholder="Nhập mật khẩu"/>
+    <button onclick="checkPassword()">Vào quản lý</button>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <div id="app" style="display:none;">
+    <h1>🐰 Quản lý acc - Bunny Shop</h1>
+
+    <section id="form">
+      <input placeholder="Username" id="username">
+      <input placeholder="Password" id="passwordAcc">
+      <input placeholder="Giá tiền" id="price">
+      <select id="status">
+        <option>Chưa bán</option>
+        <option>Đã bán</option>
+      </select>
+      <input placeholder="Email khôi phục" id="recovery">
+      <input placeholder="Mã 2FA" id="fa2">
+      <input placeholder="Ghi chú" id="note">
+      <button onclick="addAccount()">➕ Thêm acc</button>
+      <p id="form-status"></p>
+    </section>
+
+    <section id="filter">
+      <label>Lọc:</label>
+      <select onchange="filterStatus(this.value)">
+        <option value="all">Tất cả</option>
+        <option value="Chưa bán">Chưa bán</option>
+        <option value="Đã bán">Đã bán</option>
+      </select>
+    </section>
+
+    <section id="list">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Pass</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+            <th>Ngày bán</th>
+            <th>Mail</th>
+            <th>2FA</th>
+            <th>Ghi chú</th>
+          </tr>
+        </thead>
+        <tbody id="accTable"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
